@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111312">
+  <meta name="description" content="A personal spending and recovery tracker. Keep the number in view and make every transaction count.">
+  <title>Groundwork — Personal money tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Groundwork home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>GROUNDWORK<span class="brand-period">.</span></span></a>
+      <div class="private-label"><span class="live-dot"></span> YOUR MONEY, YOUR TERMS</div>
+    </header>
+
+    <section class="intro" id="top">
+      <div class="eyebrow"><span class="eyebrow-line"></span> THE LONG GAME <span class="eyebrow-line"></span></div>
+      <h1>Build a life<br>that <em>adds up.</em></h1>
+      <p>One honest entry at a time. Keep track of what you spend, what you make back, and where you stand.</p>
+    </section>
+
+    <section class="balance-card" aria-labelledby="balance-label">
+      <div class="balance-top"><span class="balance-label" id="balance-label">YOUR BALANCE</span><span class="balance-period"><span class="live-dot"></span> ALL TIME</span></div>
+      <div class="balance-value" id="balance">£0.00</div>
+      <div class="balance-bottom"><span class="balance-rule"></span><span id="balance-message" aria-live="polite">You're at break even.</span></div>
+      <span class="balance-watermark" aria-hidden="true">£</span>
+    </section>
+
+    <section class="summary" aria-label="Totals">
+      <div><span class="summary-label"><span class="summary-dot spent-dot"></span> SPENT</span><strong id="total-spent">£0.00</strong></div>
+      <span class="summary-divider"></span>
+      <div><span class="summary-label"><span class="summary-dot made-dot"></span> MADE</span><strong id="total-made">£0.00</strong></div>
+    </section>
+
+    <section class="entry-section" aria-labelledby="entry-heading">
+      <div class="section-heading"><div><span class="section-index">01 / LOG IT</span><h2 id="entry-heading">Make it count.</h2></div><span class="entry-note">A moment of intention<br>changes the picture.</span></div>
+      <div class="entry-card">
+        <div class="amount-display"><span class="amount-currency">£</span><span id="amount-display" aria-live="polite">0</span><button class="clear-button" id="clear-button" type="button" aria-label="Clear amount">CLEAR</button></div>
+        <div class="keypad" role="group" aria-label="Amount keypad">
+          <button class="key" data-key="7">7</button><button class="key" data-key="8">8</button><button class="key" data-key="9">9</button>
+          <button class="key" data-key="4">4</button><button class="key" data-key="5">5</button><button class="key" data-key="6">6</button>
+          <button class="key" data-key="1">1</button><button class="key" data-key="2">2</button><button class="key" data-key="3">3</button>
+          <button class="key key-zero" data-key="0">0</button><button class="key" data-key=".">.</button><button class="key key-delete" id="delete-digit" aria-label="Delete last digit">⌫</button>
+        </div>
+        <label class="description-label" for="description">WHAT WAS IT FOR?</label>
+        <input id="description" class="description-input" type="text" maxlength="80" placeholder="e.g. Groceries, freelance work…" autocomplete="off">
+        <p class="form-error" id="form-error" role="alert"></p>
+        <div class="action-row"><button class="action-button spent-button" id="spent-button" type="button"><span class="action-icon">−</span><span>SPENT</span><span class="action-arrow">↗</span></button><button class="action-button made-button" id="made-button" type="button"><span class="action-icon">＋</span><span>MADE</span><span class="action-arrow">↗</span></button></div>
+      </div>
+      <p class="entry-footnote"><span>↳</span> No judgement. Just the real number.</p>
+    </section>
+
+    <section class="history-section" aria-labelledby="history-heading">
+      <div class="section-heading history-heading"><div><span class="section-index">02 / LOOK BACK</span><h2 id="history-heading">The record.</h2></div><button class="reset-button" id="reset-button" type="button">RESET DATA <span>↗</span></button></div>
+      <div id="history-list" class="history-list"></div>
+    </section>
+    <footer class="footer"><span>GROUNDWORK<span class="brand-period">.</span></span><span>SMALL MOVES. YOUR FUTURE.</span></footer>
+  </main>
+  <dialog id="confirm-dialog" class="confirm-dialog"><form method="dialog"><span class="section-index" id="dialog-kicker">CONFIRM ACTION</span><h2 id="dialog-title">Delete this transaction?</h2><p id="dialog-copy">This change will update your balance.</p><div class="dialog-actions"><button class="cancel-button" value="cancel">Keep it</button><button class="confirm-button" id="dialog-confirm" value="confirm">Delete</button></div></form></dialog>
+  <script src="script.js"></script>
+</body>
+</html>
